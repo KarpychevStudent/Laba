@@ -16,7 +16,7 @@ public static void main (String args[]){
     }else if(d == 0){
         System.out.print("discriminant: " + d);
         System.out.println("; x1 = " + x1);
-    }else{System.out.print("disriminant " + d);
+    }else{System.out.print("diskriminant " + d);
         System.out.print("; x1 = " + x1);
         System.out.println(", x2 = " + x2);
     }
