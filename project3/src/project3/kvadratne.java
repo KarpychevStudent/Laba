@@ -1,24 +1,45 @@
 package project3;
-import java.util.Scanner;
-class kvadratne{
-public static void main (String args[]){
-	Scanner in = new Scanner(System.in);
-    System.out.print("vvedite a b c: ");
-    float a = in.nextFloat(), b = in.nextFloat(), c = in.nextFloat();
-    if(a == 0){
-        System.out.println("na 0 delit nelzya!!!");            
-    }else{
-    float d = (float) (Math.pow(b, 2) - (4*a*c));
-    double x1 = (-b + Math.sqrt(d))/2*a;
-    double x2 = (-b - Math.sqrt(d))/2*a;
-    if(d < 0){
-    System.out.println("net korney!");
-    }else if(d == 0){
-        System.out.print("discriminant: " + d);
-        System.out.println("; x1 = " + x1);
-    }else{System.out.print("diskriminant " + d);
-        System.out.print("; x1 = " + x1);
-        System.out.println(", x2 = " + x2);
+public class kvadratne {
+    public static void main(String[] args) {
+        int a = 0;
+        int b = 1;
+        int c = 10;
+
+        System.out.println(solve(a, b, c));
     }
+
+    public static String solve(int a, int b, int c){
+        double x1 = 0, x2 = 0, D = 0;
+
+        if(a != 0 && b != 0){
+            D = b*b - 4*a*c;
+            if(D >= 0){
+                x1 = (-b + Math.sqrt(D))/2*a;
+                x2 = (-b - Math.sqrt(D))/2*a;
+            }
+            else{
+                return "No solves";
+            }
+        }
+        if(a == 0 && b != 0){
+            x1 = -c/b;
+            return "x1 = " + x1;
+        }
+        if(a == 0 && b == 0){
+            return "Not solves";
+        }
+        if(a != 0 && b == 0 && c != 0){
+            if(a < 0){
+                x1 = Math.sqrt(-c/a);
+                x2 = -Math.sqrt(-c/a);
+            }
+            else {
+                return "No solves";
+            }
+        }
+
+        String strsolve = "x1 = " + x1 + "; x2 = " + x2;
+
+        return strsolve;
     }
 }
